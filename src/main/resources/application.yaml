@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: xtra-storage-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/xtra
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 3GB
+      max-request-size: 3GB
+
+minio:
+  url: http://localhost:9000
+  access-key: admin
+  secret-key: m!n!02708@
+  bucket-name: testing
+  post-dir: posts
+  profile-dir: profile_pic
+
+server:
+  port: 9009
+  tomcat:
+    max-swallow-size: -1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9002/eureka
+
+
